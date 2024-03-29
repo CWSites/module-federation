@@ -47,7 +47,10 @@ module.exports = {
       name: "host_app",
       filename: "remoteEntry.js",
       remotes: {
-        remote_app: "remote_app@http://localhost:8081/remoteEntry.js",
+        // uncomment the following line to run locally
+        // remote_app: "remote_app@http://localhost:8081/remoteEntry.js",
+        remote_app:
+          "remote_app@https://raw.githubusercontent.com/CWSites/module-federation-remote/gh-pages/remoteEntry.js",
         demo_remote_app:
           "demo_remote_app@https://raw.githubusercontent.com/CWSites/module-federation-remote/gh-pages/remoteEntry.js",
       },
