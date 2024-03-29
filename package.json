@@ -1,0 +1,25 @@
+{
+  "name": "module-federation",
+  "version": "1.0.0",
+  "author": "CWSites",
+  "license": "MIT",
+  "homepage": "https://github.com/CWSites/module-federation#readme",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CWSites/module-federation.git"
+  },
+  "private": true,
+  "workspaces": [
+    "host-app",
+    "remote-app"
+  ],
+  "scripts": {
+    "init": "concurrently \"cd host-app; npm install\" \"cd remote-app; npm install\"",
+    "start": "concurrently \"cd host-app; npm run dev\" \"cd remote-app; npm run dev\"",
+    "clean": "concurrently \"cd host-app; npm run clean\" \"cd remote-app; npm run clean\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0"
+  }
+}
