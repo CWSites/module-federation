@@ -115,9 +115,6 @@ var ModuleLoader = function ModuleLoader(props) {
     fallback: "Loading Module"
   }, /*#__PURE__*/index_js_default().createElement(Component, null));
 };
-// EXTERNAL MODULE: remote remote_app/Components
-var Components = __webpack_require__(468);
-var Components_default = /*#__PURE__*/__webpack_require__.n(Components);
 ;// CONCATENATED MODULE: ./src/App.jsx
 function App_slicedToArray(arr, i) { return App_arrayWithHoles(arr) || App_iterableToArrayLimit(arr, i) || App_unsupportedIterableToArray(arr, i) || App_nonIterableRest(); }
 function App_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -129,11 +126,13 @@ function App_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+// uncomment the following lines to import components from local "remote-app"
+// import DefaultComponent, { NotDefaultComponent } from "remote_app/Components";
 
-var HelloWorld = /*#__PURE__*/(0,index_js_.lazy)(function () {
-  return __webpack_require__.e(/* import() */ 440).then(__webpack_require__.t.bind(__webpack_require__, 440, 23));
+var LazyHelloWorld = /*#__PURE__*/(0,index_js_.lazy)(function () {
+  return __webpack_require__.e(/* import() */ 292).then(__webpack_require__.t.bind(__webpack_require__, 292, 23));
 });
-var NonDefaultHelloWorld = /*#__PURE__*/(0,index_js_.lazy)(function () {
+var LazyNonDefaultHelloWorld = /*#__PURE__*/(0,index_js_.lazy)(function () {
   return __webpack_require__.e(/* import() */ 292).then(__webpack_require__.t.bind(__webpack_require__, 292, 23)).then(function (module) {
     return {
       "default": module.NonDefaultHelloWorld
@@ -145,12 +144,17 @@ var LazyHelloUniverse = /*#__PURE__*/(0,index_js_.lazy)(function () {
 });
 var container = document.getElementById("root");
 var root = (0,client/* createRoot */.H)(container);
-var ErrorFallback = function ErrorFallback() {
-  return /*#__PURE__*/index_js_default().createElement("h3", {
+var ErrorFallback = function ErrorFallback(_ref) {
+  var error = _ref.error,
+    resetErrorBoundary = _ref.resetErrorBoundary;
+  return /*#__PURE__*/index_js_default().createElement((index_js_default()).Fragment, null, /*#__PURE__*/index_js_default().createElement("h3", {
     style: {
       color: "#f00"
     }
-  }, "Something went wrong");
+  }, "Something went wrong,", " ", /*#__PURE__*/index_js_default().createElement("a", {
+    href: "#",
+    onClick: resetErrorBoundary
+  }, "try again")), /*#__PURE__*/index_js_default().createElement("pre", null, error.message));
 };
 var App = function App() {
   var _useState = (0,index_js_.useState)(null),
@@ -192,9 +196,9 @@ var App = function App() {
     fallback: "loading static Hello World..."
   }, /*#__PURE__*/index_js_default().createElement("strong", null, "Lazy Loaded from same repo..."), /*#__PURE__*/index_js_default().createElement(react_error_boundary_esm_js_.ErrorBoundary, {
     FallbackComponent: ErrorFallback
-  }, /*#__PURE__*/index_js_default().createElement(HelloWorld, null)), /*#__PURE__*/index_js_default().createElement(react_error_boundary_esm_js_.ErrorBoundary, {
+  }, /*#__PURE__*/index_js_default().createElement(LazyHelloWorld, null)), /*#__PURE__*/index_js_default().createElement(react_error_boundary_esm_js_.ErrorBoundary, {
     FallbackComponent: ErrorFallback
-  }, /*#__PURE__*/index_js_default().createElement(NonDefaultHelloWorld, null))), /*#__PURE__*/index_js_default().createElement(index_js_.Suspense, {
+  }, /*#__PURE__*/index_js_default().createElement(LazyNonDefaultHelloWorld, null))), /*#__PURE__*/index_js_default().createElement(index_js_.Suspense, {
     fallback: "loading Lazy Hello Universe..."
   }, /*#__PURE__*/index_js_default().createElement("strong", null, "Lazy Loaded from hosted server..."), /*#__PURE__*/index_js_default().createElement(react_error_boundary_esm_js_.ErrorBoundary, {
     FallbackComponent: ErrorFallback
@@ -212,11 +216,15 @@ var App = function App() {
     url: dynamicRemoteURL.url,
     scope: dynamicRemoteURL.scope,
     module: dynamicRemoteURL.module
-  })))), /*#__PURE__*/index_js_default().createElement("strong", null, "Standard import of default component..."), /*#__PURE__*/index_js_default().createElement(react_error_boundary_esm_js_.ErrorBoundary, {
+  })))), /*#__PURE__*/index_js_default().createElement("strong", null, "Standard import of default component..."), /*#__PURE__*/index_js_default().createElement(index_js_.Suspense, {
+    fallback: "loading default component..."
+  }, /*#__PURE__*/index_js_default().createElement(react_error_boundary_esm_js_.ErrorBoundary, {
     FallbackComponent: ErrorFallback
-  }, /*#__PURE__*/index_js_default().createElement((Components_default()), null)), /*#__PURE__*/index_js_default().createElement("strong", null, "Standard import of non-default component..."), /*#__PURE__*/index_js_default().createElement(react_error_boundary_esm_js_.ErrorBoundary, {
+  })), /*#__PURE__*/index_js_default().createElement("strong", null, "Standard import of non-default component..."), /*#__PURE__*/index_js_default().createElement(index_js_.Suspense, {
+    fallback: "loading non default component..."
+  }, /*#__PURE__*/index_js_default().createElement(react_error_boundary_esm_js_.ErrorBoundary, {
     FallbackComponent: ErrorFallback
-  }, /*#__PURE__*/index_js_default().createElement(Components.NotDefaultComponent, null)));
+  })));
 };
 root.render( /*#__PURE__*/index_js_default().createElement(App, null));
 
