@@ -2,10 +2,11 @@ import React, { lazy, Suspense, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { ErrorBoundary } from "react-error-boundary";
 import { ModuleLoader } from "./dynamic-loader/ModuleLoader";
-import DefaultComponent, { NotDefaultComponent } from "remote_app/Components";
+// uncomment the following lines to import components from local "remote-app"
+// import DefaultComponent, { NotDefaultComponent } from "remote_app/Components";
 
-const HelloWorld = lazy(() => import("remote_app/HelloWorl"));
-const NonDefaultHelloWorld = lazy(() =>
+const LazyHelloWorld = lazy(() => import("remote_app/HelloWorl"));
+const LazyNonDefaultHelloWorld = lazy(() =>
   import("remote_app/HelloWorld").then((module) => ({
     default: module.NonDefaultHelloWorld,
   }))
@@ -53,10 +54,10 @@ const App = () => {
       <Suspense fallback={"loading static Hello World..."}>
         <strong>Lazy Loaded from same repo...</strong>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <HelloWorld />
+          <LazyHelloWorld />
         </ErrorBoundary>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <NonDefaultHelloWorld />
+          <LazyNonDefaultHelloWorld />
         </ErrorBoundary>
       </Suspense>
       <Suspense fallback={"loading Lazy Hello Universe..."}>
@@ -93,11 +94,13 @@ const App = () => {
       </Suspense>
       <strong>Standard import of default component...</strong>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <DefaultComponent />
+        {/* uncomment the following lines to import components from local "remote-app" */}
+        {/* <DefaultComponent /> */}
       </ErrorBoundary>
       <strong>Standard import of non-default component...</strong>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <NotDefaultComponent />
+        {/* uncomment the following lines to import components from local "remote-app" */}
+        {/* <NotDefaultComponent /> */}
       </ErrorBoundary>
     </>
   );
