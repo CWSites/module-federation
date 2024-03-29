@@ -64,7 +64,7 @@ module.exports = {
     // https://www.npmjs.com/package/html-webpack-plugin
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      // favicon: "./src/favicon.ico",
+      favicon: "./src/favicon.ico",
     }),
   ],
 };
