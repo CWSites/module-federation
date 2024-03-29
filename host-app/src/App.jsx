@@ -5,7 +5,7 @@ import { ModuleLoader } from "./dynamic-loader/ModuleLoader";
 // uncomment the following lines to import components from local "remote-app"
 // import DefaultComponent, { NotDefaultComponent } from "remote_app/Components";
 
-const LazyHelloWorld = lazy(() => import("remote_app/HelloWorl"));
+const LazyHelloWorld = lazy(() => import("remote_app/HelloWorld"));
 const LazyNonDefaultHelloWorld = lazy(() =>
   import("remote_app/HelloWorld").then((module) => ({
     default: module.NonDefaultHelloWorld,
@@ -16,8 +16,18 @@ const LazyHelloUniverse = lazy(() => import("demo_remote_app/HelloUniverse"));
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const ErrorFallback = () => {
-  return <h3 style={{ color: "#f00" }}>Something went wrong</h3>;
+const ErrorFallback = ({ error, resetErrorBoundary }) => {
+  return (
+    <>
+      <h3 style={{ color: "#f00" }}>
+        Something went wrong,{" "}
+        <a href="#" onClick={resetErrorBoundary}>
+          try again
+        </a>
+      </h3>
+      <pre>{error.message}</pre>
+    </>
+  );
 };
 
 const App = () => {
@@ -93,15 +103,19 @@ const App = () => {
         )}
       </Suspense>
       <strong>Standard import of default component...</strong>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        {/* uncomment the following lines to import components from local "remote-app" */}
-        {/* <DefaultComponent /> */}
-      </ErrorBoundary>
+      <Suspense fallback={"loading default component..."}>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          {/* uncomment the following lines to import components from local "remote-app" */}
+          {/* <DefaultComponent /> */}
+        </ErrorBoundary>
+      </Suspense>
       <strong>Standard import of non-default component...</strong>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        {/* uncomment the following lines to import components from local "remote-app" */}
-        {/* <NotDefaultComponent /> */}
-      </ErrorBoundary>
+      <Suspense fallback={"loading non default component..."}>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          {/* uncomment the following lines to import components from local "remote-app" */}
+          {/* <NotDefaultComponent /> */}
+        </ErrorBoundary>
+      </Suspense>
     </>
   );
 };

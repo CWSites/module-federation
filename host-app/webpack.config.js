@@ -48,7 +48,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         // uncomment the following line to run locally
-        // remote_app: "remote_app@http://localhost:8081/remoteEntry.js",
+        remote_app: "remote_app@http://localhost:8081/remoteEntry.js",
         demo_remote_app:
           "demo_remote_app@https://cwsites.github.io/module-federation-remote/remoteEntry.js",
       },
