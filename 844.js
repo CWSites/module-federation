@@ -175,7 +175,7 @@ var App = function App() {
     });
   };
   var loadRemoteFromProps = function loadRemoteFromProps() {
-    var url = "https://raw.githubusercontent.com/CWSites/module-federation-remote/gh-pages/remoteEntry.js";
+    var url = "https://cwsites.github.io/module-federation-remote/remoteEntry.js";
     var scope = "demo_remote_app";
     var module = "./HelloUniverse";
     setRemote({

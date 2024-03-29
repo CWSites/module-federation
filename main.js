@@ -8,14 +8,14 @@ Promise.all(/* import() */[__webpack_require__.e(343), __webpack_require__.e(844
 
 /***/ }),
 
-/***/ 368:
+/***/ 607:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 var __webpack_error__ = new Error();
 module.exports = new Promise((resolve, reject) => {
 	if(typeof demo_remote_app !== "undefined") return resolve();
-	__webpack_require__.l("https://raw.githubusercontent.com/CWSites/module-federation-remote/gh-pages/remoteEntry.js", (event) => {
+	__webpack_require__.l("https://cwsites.github.io/module-federation-remote/remoteEntry.js", (event) => {
 		if(typeof demo_remote_app !== "undefined") return resolve();
 		var errorType = event && (event.type === 'load' ? 'missing' : event.type);
 		var realSrc = event && event.target && event.target.src;
@@ -29,14 +29,14 @@ module.exports = new Promise((resolve, reject) => {
 
 /***/ }),
 
-/***/ 894:
+/***/ 841:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 var __webpack_error__ = new Error();
 module.exports = new Promise((resolve, reject) => {
 	if(typeof remote_app !== "undefined") return resolve();
-	__webpack_require__.l("https://raw.githubusercontent.com/CWSites/module-federation-remote/gh-pages/remoteEntry.js", (event) => {
+	__webpack_require__.l("https://cwsites.github.io/module-federation-remote/remoteEntry.js", (event) => {
 		if(typeof remote_app !== "undefined") return resolve();
 		var errorType = event && (event.type === 'load' ? 'missing' : event.type);
 		var realSrc = event && event.target && event.target.src;
@@ -253,22 +253,22 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 			"79": [
 /******/ 				"default",
 /******/ 				"./HelloUniverse",
-/******/ 				368
+/******/ 				607
 /******/ 			],
 /******/ 			"292": [
 /******/ 				"default",
 /******/ 				"./HelloWorld",
-/******/ 				894
+/******/ 				841
 /******/ 			],
 /******/ 			"440": [
 /******/ 				"default",
 /******/ 				"./HelloWorl",
-/******/ 				894
+/******/ 				841
 /******/ 			],
 /******/ 			"468": [
 /******/ 				"default",
 /******/ 				"./Components",
-/******/ 				894
+/******/ 				841
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.remotes = (chunkId, promises) => {
@@ -360,8 +360,8 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 					register("react-dom", "18.2.0", () => (Promise.all([__webpack_require__.e(325), __webpack_require__.e(343)]).then(() => (() => (__webpack_require__(325))))));
 /******/ 					register("react-error-boundary", "4.0.13", () => (Promise.all([__webpack_require__.e(343), __webpack_require__.e(133)]).then(() => (() => (__webpack_require__(133))))));
 /******/ 					register("react", "18.2.0", () => (__webpack_require__.e(696).then(() => (() => (__webpack_require__(696))))));
-/******/ 					initExternal(894);
-/******/ 					initExternal(368);
+/******/ 					initExternal(841);
+/******/ 					initExternal(607);
 /******/ 				}
 /******/ 				break;
 /******/ 			}
