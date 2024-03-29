@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "init": "concurrently \"cd host-app; npm install\" \"cd remote-app; npm install\"",
+    "build": "concurrently \"cd host-app; npm run build\" \"cd remote-app; npm run build\"",
     "start": "concurrently \"cd host-app; npm run dev\" \"cd remote-app; npm run dev\"",
     "clean": "concurrently \"cd host-app; npm run clean\" \"cd remote-app; npm run clean\""
   },
