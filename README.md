@@ -66,7 +66,7 @@ You'll need to specify which remote applications you want to load in the `webpac
       filename: "remoteEntry.js",
       remotes: {
         remote_app:
-          "remote_app@https://uniqueapp.com/remoteEntry.js",
+          "remote_app@https://cwsites.github.io/module-federation-remote/remoteEntry.js",
       },
       exposes: {},
       shared: {
@@ -82,7 +82,7 @@ You'll need to specify which remote applications you want to load in the `webpac
 ### Running Remotely
 
 ```js
-remote_app: "remote_app@https://uniqueapp.com/remoteEntry.js";
+remote_app: "remote_app@https://cwsites.github.io/module-federation-remote/remoteEntry.js";
 ```
 
 ### Running Locally

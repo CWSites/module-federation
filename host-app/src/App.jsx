@@ -35,7 +35,7 @@ const App = () => {
 
   const loadRemoteFromProps = () => {
     const url =
-      "https://raw.githubusercontent.com/CWSites/module-federation-remote/gh-pages/remoteEntry.js";
+      "https://cwsites.github.io/module-federation-remote/remoteEntry.js";
     const scope = "demo_remote_app";
     const module = "./HelloUniverse";
 
